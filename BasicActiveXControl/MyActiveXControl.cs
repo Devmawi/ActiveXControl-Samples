@@ -71,6 +71,8 @@ namespace MyComControls
         }
 
         [ComVisible(true)]
+        [ComAliasName("LabelText")]
+        [DispId(0)]
         public string LabelText { get; set; }
 
         private void button1_Click(object sender, EventArgs e)

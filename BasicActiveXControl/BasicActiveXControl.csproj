@@ -68,7 +68,6 @@
   <ItemGroup>
     <None Include="BasicActiveXControlForm.xlsm" />
     <None Include="MyComControls.pfx" />
-    <None Include="regasm-codebase.cmd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

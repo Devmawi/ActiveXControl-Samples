@@ -74,12 +74,12 @@
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="RegistrationFreeActiveXControl.manifest" />
+    <EmbeddedResource Include="RegistrationFreeActiveXControl.manifest" />
     <None Include="SigningKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="RegistrationFreeActiveXControl.rc" />
-    <Content Include="RegistrationFreeActiveXControl.res" />
+    <EmbeddedResource Include="RegistrationFreeActiveXControl.res" />
     <Content Include="resource.h" />
   </ItemGroup>
   <ItemGroup>

@@ -19,16 +19,19 @@
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>TRACE;DEBUG;COM_INTEROP_ENABLED</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>2</WarningLevel>
+    <WarningLevel>0</WarningLevel>
     <RegisterForComInterop>true</RegisterForComInterop>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <DefineConstants>TRACE;COM_INTEROP_ENABLED</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <WarningLevel>0</WarningLevel>
+    <RegisterForComInterop>true</RegisterForComInterop>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
@@ -40,6 +43,7 @@
     <ApplicationManifest>RegistrationFreeActiveXControl.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -52,12 +56,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActiveXControlHelpers.cs" />
     <Compile Include="IRegistrationFreeControl1.cs" />
     <Compile Include="MyRegistrationFreeControl1.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="MyRegistrationFreeControl1.Designer.cs">
       <DependentUpon>MyRegistrationFreeControl1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyUserControl1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyUserControl1.Designer.cs">
+      <DependentUpon>MyUserControl1.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
@@ -68,6 +79,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="RegistrationFreeActiveXControl.rc" />
+    <Content Include="RegistrationFreeActiveXControl.res" />
+    <Content Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MyUserControl1.resx">
+      <DependentUpon>MyUserControl1.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

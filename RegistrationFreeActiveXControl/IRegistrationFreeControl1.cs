@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace RegistrationFreeActiveXControl
 {
     [ComVisible(true)]
-    [Guid("7d4d6ffb-72f4-44da-8ebf-d48f753895f9")]
+    [Guid("9592ed19-cc55-4a43-9f9d-c3f67f8943fd")]
     public interface IRegistrationFreeControl1
     {
         /// <summary>

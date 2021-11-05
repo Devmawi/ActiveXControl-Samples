@@ -1,6 +1,6 @@
 ﻿namespace RegistrationFreeActiveXControl
 {
-    partial class MyRegistrationFreeControl
+    partial class MyRegistrationFreeControl1
     {
         /// <summary>
         /// Required designer variable.

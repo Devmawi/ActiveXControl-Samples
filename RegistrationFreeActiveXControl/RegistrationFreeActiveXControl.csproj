@@ -53,11 +53,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IRegistrationFreeControl.cs" />
-    <Compile Include="MyRegistrationFreeControl.cs">
+    <Compile Include="MyRegistrationFreeControl1.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MyRegistrationFreeControl.Designer.cs">
-      <DependentUpon>MyRegistrationFreeControl.cs</DependentUpon>
+    <Compile Include="MyRegistrationFreeControl1.Designer.cs">
+      <DependentUpon>MyRegistrationFreeControl1.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="RegistrationFreeActiveXControl.rc" />
+    <Content Include="RegistrationFreeActiveXControl.res" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

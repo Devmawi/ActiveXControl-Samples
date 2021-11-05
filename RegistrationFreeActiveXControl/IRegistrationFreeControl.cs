@@ -70,8 +70,6 @@ namespace RegistrationFreeActiveXControl
         string Url2 { get; set; }
 
         [DispId(13)]
-        [ComVisible(true)]
-        [ComAliasName("SelectedVersion")]
         int SelectedVersion { get; }
     }
 }

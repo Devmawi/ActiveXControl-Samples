@@ -14,11 +14,10 @@ namespace RegistrationFreeActiveXControl
 {
     [ComVisible(true)]
     [Guid("8944362e-e31f-4d9c-8ad5-7cd7eb4aa4a5"), ClassInterface(ClassInterfaceType.None)]
-    [ProgId("RegistrationFreeActiveXControl.MyRegistrationFreeControl")]
     [ComDefaultInterface(typeof(IRegistrationFreeControl))]
-    public partial class MyRegistrationFreeControl: UserControl, IRegistrationFreeControl
+    public partial class MyRegistrationFreeControl1: UserControl, IRegistrationFreeControl
     {
-        public MyRegistrationFreeControl()
+        public MyRegistrationFreeControl1()
         {
             InitializeComponent();
         }
@@ -42,7 +41,7 @@ namespace RegistrationFreeActiveXControl
         {
             return true;
         }
-        [EditorBrowsable(EditorBrowsableState.Always)]
+   
         public string Url2 { get; set; }
         public int SelectedVersion { get; }
 

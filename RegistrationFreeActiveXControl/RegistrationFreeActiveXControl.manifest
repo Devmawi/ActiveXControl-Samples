@@ -5,7 +5,6 @@
 					  version="1.0.0.0"/>
 	<clrClass
 				clsid="{8944362e-e31f-4d9c-8ad5-7cd7eb4aa4a5}"
-				progid="RegistrationFreeActiveXControl.MyRegistrationFreeControl1"
 				threadingModel="Both"
 				name="RegistrationFreeActiveXControl.MyRegistrationFreeControl1" >
 	</clrClass>

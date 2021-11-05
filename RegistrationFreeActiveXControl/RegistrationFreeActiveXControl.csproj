@@ -52,7 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IRegistrationFreeControl.cs" />
+    <Compile Include="IRegistrationFreeControl1.cs" />
     <Compile Include="MyRegistrationFreeControl1.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -68,7 +68,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="RegistrationFreeActiveXControl.rc" />
-    <Content Include="RegistrationFreeActiveXControl.res" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

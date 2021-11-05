@@ -14,8 +14,8 @@ namespace RegistrationFreeActiveXControl
 {
     [ComVisible(true)]
     [Guid("8944362e-e31f-4d9c-8ad5-7cd7eb4aa4a5"), ClassInterface(ClassInterfaceType.None)]
-    [ComDefaultInterface(typeof(IRegistrationFreeControl))]
-    public partial class MyRegistrationFreeControl1: UserControl, IRegistrationFreeControl
+    [ComDefaultInterface(typeof(IRegistrationFreeControl1))]
+    public partial class MyRegistrationFreeControl1: UserControl, IRegistrationFreeControl1
     {
         public MyRegistrationFreeControl1()
         {

@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 namespace RegistrationFreeActiveXControl
 {
     [ComVisible(true)]
-    [Guid("0817ec29-1c93-4075-b0f4-7b5659b57670")]
-    public interface IRegistrationFreeControl
+    [Guid("7d4d6ffb-72f4-44da-8ebf-d48f753895f9")]
+    public interface IRegistrationFreeControl1
     {
         /// <summary>
         /// Gets or sets a value indicating whether the user control is visible.

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<assembly manifestVersion="1.0" xmlns="urn:schemas-microsoft-com:asm.v1">
+	<assemblyIdentity type="win32"
+					  name="RegistrationFreeActiveXControl"
+					  version="1.0.0.0"/>
+	<clrClass
+				clsid="{667e9f57-67a4-4bd5-a64e-e4e067abf55d}"
+				progid="RegistrationFreeActiveXControl.MyRegistrationFreeControl"
+				threadingModel="Both"
+				name="RegistrationFreeActiveXControl.MyRegistrationFreeControl" >
+	</clrClass>
+</assembly>

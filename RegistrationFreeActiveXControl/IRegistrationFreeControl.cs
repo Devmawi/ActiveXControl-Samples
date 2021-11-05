@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace RegistrationFreeActiveXControl
 {
     [ComVisible(true)]
-    [Guid("c24bb3a1-e36c-434c-b02b-22e4f3f2d2b5")]
+    [Guid("0817ec29-1c93-4075-b0f4-7b5659b57670")]
     public interface IRegistrationFreeControl
     {
         /// <summary>
@@ -56,7 +56,22 @@ namespace RegistrationFreeActiveXControl
 
         [DispId(8)]
         int ControlHeight { get; set; }
+
         [DispId(9)]
-        string Url { get; set; }
+        bool Init();
+
+        [DispId(10)]
+        bool New();
+
+        [DispId(11)]
+        bool Change();
+
+        [DispId(12)]
+        string Url2 { get; set; }
+
+        [DispId(13)]
+        [ComVisible(true)]
+        [ComAliasName("SelectedVersion")]
+        int SelectedVersion { get; }
     }
 }

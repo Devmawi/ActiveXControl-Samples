@@ -2,6 +2,7 @@
 // Microsoft Visual C++ generated include file.
 // Used by RegistrationFreeActiveXControl.rc
 //
+#define IDR_RT_MANIFEST1                101
 
 // Next default values for new objects
 // 

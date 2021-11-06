@@ -23,6 +23,7 @@ namespace RegFreeActiveXControls
         public RegFreeUserControl()
         {
             InitializeComponent();
+            iRegFreeUserControlBindingSource.DataSource = this;
         }
 
         private void button1_Click(object sender, EventArgs e)

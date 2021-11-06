@@ -40,8 +40,8 @@ namespace RegFreeActiveXControls
                     RegistryKey inprocKey = subkey.OpenSubKey("InprocServer32", true);
                     if (inprocKey != null)
                     {
-                        //inprocKey.SetValue(null, Environment.SystemDirectory + @"\mscoree.dll");
-                        inprocKey.SetValue("CodeBase", Assembly.GetExecutingAssembly().CodeBase);
+                        inprocKey.SetValue(null, Environment.SystemDirectory + @"\mscoree.dll");
+                        //inprocKey.SetValue("CodeBase", Assembly.GetExecutingAssembly().CodeBase);
                     }
 
                     //Control: https://docs.microsoft.com/en-us/windows/win32/com/control

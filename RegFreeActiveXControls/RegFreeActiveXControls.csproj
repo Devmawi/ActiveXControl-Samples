@@ -79,6 +79,7 @@
   <ItemGroup>
     <None Include="Properties\DataSources\IRegFreeUserControl.datasource" />
     <None Include="Properties\DataSources\RegFreeUserControl.datasource" />
+    <None Include="README.md" />
     <None Include="RegFreeActiveXControls.xlsm" />
     <None Include="SigningKey.pfx" />
   </ItemGroup>

@@ -1,12 +1,12 @@
+using Microsoft.VisualBasic.Devices;
+using Microsoft.Win32;
 using System;
 using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-using Microsoft.VisualBasic.Devices;
-using Microsoft.Win32;
 
-namespace RegistrationFreeActiveXControl
+namespace RegFreeActiveXControls
 {
 #if COM_INTEROP_ENABLED
 
@@ -27,8 +27,8 @@ namespace RegistrationFreeActiveXControl
         {
             try
             {
-                GuardNullType(t, "t");
-                GuardTypeIsControl(t);
+                //GuardNullType(t, "t");
+                //GuardTypeIsControl(t);
 
                 // CLSID
                 string key = @"CLSID\" + t.GUID.ToString("B");
@@ -36,21 +36,17 @@ namespace RegistrationFreeActiveXControl
                 using (RegistryKey subkey = Registry.ClassesRoot.OpenSubKey(key, true))
                 {
 
-                    // InProcServer32
+                    // InProcServer32: https://docs.microsoft.com/en-us/windows/win32/com/inprocserver32
                     RegistryKey inprocKey = subkey.OpenSubKey("InprocServer32", true);
                     if (inprocKey != null)
                     {
-                        inprocKey.SetValue(null, Environment.SystemDirectory + @"\mscoree.dll");
+                        //inprocKey.SetValue(null, Environment.SystemDirectory + @"\mscoree.dll");
+                        inprocKey.SetValue("CodeBase", Assembly.GetExecutingAssembly().CodeBase);
                     }
 
-                    //Control
+                    //Control: https://docs.microsoft.com/en-us/windows/win32/com/control
                     using (var c = subkey.CreateSubKey("Control"))
                     { }
-
-                    //// Next create the CodeBase entry – needed if not string named and GACced.
-                    //RegistryKey inprocServer32 = subkey.OpenSubKey("InprocServer32", true);
-                    //inprocServer32.SetValue("CodeBase", Assembly.GetExecutingAssembly().CodeBase);
-                    //inprocServer32.Close();
 
                     //Misc
                     using (RegistryKey miscKey = subkey.CreateSubKey("MiscStatus"))
@@ -62,7 +58,7 @@ namespace RegistrationFreeActiveXControl
                         miscKey.SetValue("", MiscStatusValue.ToString(), RegistryValueKind.String);
                     }
 
-                    // ToolBoxBitmap32
+                    // ToolBoxBitmap32: https://docs.microsoft.com/en-us/windows/win32/com/toolboxbitmap32
                     using (RegistryKey bitmapKey = subkey.CreateSubKey("ToolBoxBitmap32"))
                     {
                         // If you want to have different icons for each control in this assembly
@@ -73,14 +69,14 @@ namespace RegistrationFreeActiveXControl
                                            RegistryValueKind.String);
                     }
 
-                    // TypeLib
+                    //TypeLib
                     using (RegistryKey typeLibKey = subkey.CreateSubKey("TypeLib"))
                     {
                         Guid libId = Marshal.GetTypeLibGuidForAssembly(t.Assembly);
                         typeLibKey.SetValue("", libId.ToString("B"), RegistryValueKind.String);
                     }
 
-                    // Version
+                    //Version: https://docs.microsoft.com/en-us/windows/win32/com/version
                     using (RegistryKey versionKey = subkey.CreateSubKey("Version"))
                     {
                         int major, minor;

@@ -1,0 +1,4 @@
+#define RT_MANIFEST 24
+1 RT_MANIFEST RegFreeActiveXControls.manifest
+101 BITMAP RegFreeActiveXControls.bmp
+

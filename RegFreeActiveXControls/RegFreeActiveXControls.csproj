@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{ABDF80DF-D74E-4817-90AB-8FF0B1E5423F}</ProjectGuid>
+    <ProjectGuid>{A0ABC3D6-91F3-4E62-96BC-21DD1D39AE36}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>RegistrationFreeActiveXControl</RootNamespace>
-    <AssemblyName>RegistrationFreeActiveXControl</AssemblyName>
+    <RootNamespace>RegFreeActiveXControls</RootNamespace>
+    <AssemblyName>RegFreeActiveXControls</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -19,19 +19,17 @@
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>TRACE;DEBUG;COM_INTEROP_ENABLED</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>0</WarningLevel>
+    <WarningLevel>4</WarningLevel>
     <RegisterForComInterop>true</RegisterForComInterop>
-    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE;COM_INTEROP_ENABLED</DefineConstants>
+    <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>0</WarningLevel>
-    <RegisterForComInterop>true</RegisterForComInterop>
-    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
@@ -40,7 +38,7 @@
     <AssemblyOriginatorKeyFile>SigningKey.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationManifest>RegistrationFreeActiveXControl.manifest</ApplicationManifest>
+    <Win32Resource>C:\Users\piimawi\Documents\tmp\HelloComLib\RegFreeActiveXControls\RegFreeActiveXControls.res</Win32Resource>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualBasic" />
@@ -57,35 +55,29 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActiveXControlHelpers.cs" />
-    <Compile Include="IRegistrationFreeControl1.cs" />
-    <Compile Include="MyRegistrationFreeControl1.cs">
+    <Compile Include="IRegFreeUserControl.cs" />
+    <Compile Include="RegFreeUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MyRegistrationFreeControl1.Designer.cs">
-      <DependentUpon>MyRegistrationFreeControl1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MyUserControl1.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="MyUserControl1.Designer.cs">
-      <DependentUpon>MyUserControl1.cs</DependentUpon>
+    <Compile Include="RegFreeUserControl.Designer.cs">
+      <DependentUpon>RegFreeUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="RegistrationFreeActiveXControl.manifest" />
-    <None Include="SigningKey.pfx" />
+    <Content Include="RegFreeActiveXControls.bmp" />
+    <Content Include="RegFreeActiveXControls.rc" />
+    <Content Include="RegFreeActiveXControls.res" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="RegistrationFreeActiveXControl.rc" />
-    <EmbeddedResource Include="RegistrationFreeActiveXControl.res" />
-    <Content Include="resource.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="MyUserControl1.resx">
-      <DependentUpon>MyUserControl1.cs</DependentUpon>
+    <EmbeddedResource Include="RegFreeActiveXControls.manifest" />
+    <EmbeddedResource Include="RegFreeUserControl.resx">
+      <DependentUpon>RegFreeUserControl.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SigningKey.pfx" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
@@ -98,8 +90,12 @@ IF EXIST "$(DevEnvDir)..\..\SDK\v3.5\Bin\rc.exe" (set RCDIR="$(DevEnvDir)..\..\S
 IF EXIST "$(DevEnvDir)..\..\..\Microsoft SDKs\Windows\v6.0a\bin\rc.exe" (set RCDIR="$(DevEnvDir)..\..\..\Microsoft SDKs\Windows\v6.0a\bin\rc.exe")
 IF EXIST "$(DevEnvDir)..\..\..\Microsoft SDKs\Windows\v7.0a\bin\rc.exe" (set RCDIR="$(DevEnvDir)..\..\..\Microsoft SDKs\Windows\v7.0a\bin\rc.exe")
 IF EXIST "C:\Program Files (x86)\Windows Kits\10\bin\10.0.19041.0\x86\rc.exe" (set RCDIR="C:\Program Files (x86)\Windows Kits\10\bin\10.0.19041.0\x86\rc.exe")
-if not defined RCDIR (echo "Warning!  Unable to find rc.exe, using default manifest instead.") ELSE (%25RCDIR%25 /r "$(ProjectDir)RegistrationFreeActiveXControl.rc")
+if not defined RCDIR (echo "Warning!  Unable to find rc.exe, using default manifest instead.") ELSE (%25RCDIR%25 /r "$(ProjectDir)RegFreeActiveXControls.rc")
 if not defined RCDIR (Exit 0)
 @echo.</PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>echo register assembly
+echo $(frameworkdir)\$(frameworkversion)\regasm.exe "$(TargetPath)" /tlb /codebase</PostBuildEvent>
   </PropertyGroup>
 </Project>

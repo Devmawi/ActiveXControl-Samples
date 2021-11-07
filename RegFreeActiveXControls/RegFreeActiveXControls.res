@@ -2,7 +2,7 @@
 <assembly manifestVersion="1.0" xmlns="urn:schemas-microsoft-com:asm.v1">
 	<assemblyIdentity type="win32"
 					  name="RegFreeActiveXControls"
-					  version="1.3.0.0"/>
+					  version="1.5.0.0"/>
 	<clrClass
 				clsid="{00213331-FB5D-4936-8BDC-B49850FA4E6F}"
 				threadingModel="Both"

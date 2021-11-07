@@ -13,6 +13,7 @@ namespace RegFreeActiveXControls
 {
     [ComVisible(true)]
     [Guid("00213331-FB5D-4936-8BDC-B49850FA4E6F"), ClassInterface(ClassInterfaceType.None)]
+    [ComSourceInterfaces(typeof(IRegFreeUserControlEventSource))]
     public partial class RegFreeUserControl : UserControl, IRegFreeUserControl
     {
         // Initilizing for better intellisense in VBA Editor
@@ -28,7 +29,8 @@ namespace RegFreeActiveXControls
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.textBox1.Text = this.CustomStringProperty;
+            textBox1.Text = CustomStringProperty;
+            CustomClick?.Invoke(CustomStringProperty, CustomIntegerProperty, CustomBooleanProperty);
         }
 
         [EditorBrowsable(EditorBrowsableState.Always)]
@@ -44,5 +46,9 @@ namespace RegFreeActiveXControls
         {
             ComRegistration.UnregisterControl(t);
         }
+
+        public delegate void ClickEventHandler(string customString, int customInteger, bool customBoolean);
+
+        public event ClickEventHandler CustomClick;
     }
 }
